@@ -1,0 +1,34 @@
+{% extends "_base.htm" %}
+{% block title %}
+	Chat Room
+{% endblock %}
+{% block col_left %}
+      <h1>Example Chat</h1>
+      <p>
+      <form method="post" action="/chat">
+      <input type="text" name="message" size="60"/>
+      <input type="submit" value="Chat"/> 
+      </form>
+      </p>
+      {% ifnotequal error None %}
+       <p>
+       {{ error }}
+       </p>
+      {% endifnotequal %}
+      <div id="chatcontent">
+          Loading...
+      </div>
+<script>
+function updateMsg() { 
+$.ajax({
+  url: "/messages",
+  cache: false,
+  success: function(frag){
+    $("#chatcontent").html(frag);
+  }
+ }); 
+ setTimeout('updateMsg()', 4000); 
+}
+updateMsg();
+</script>
+{% endblock %}

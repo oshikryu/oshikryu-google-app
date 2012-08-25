@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>	{% block title %} title goes here	{% endblock %}	</title>
+		<link type="text/css" rel="stylesheet" href="/static/glike.css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.2.6.min.js"></script>
+	</head>
+	<body>
+	<div id="wrapper">
+	<div id="header">
+		<!-- header button-->
+		
+		<a href="index.htm" accesskey="1"> <img src="static/banner.png" ></a>
+		<div id="navigation">
+		<ul>
+			<li><a href="storytime.htm" 
+						{% ifequal path '/storytime.htm' %}
+									class="selected"
+						{% endifequal %}
+							>Story Time</a></li>
+			<li><a href="pictures.htm"
+						{% ifequal path '/pictures.htm' %}
+							class="selected"
+						{% endifequal %}	
+							>Pictures</a></li>
+			<li><a href="about.htm"
+						{% ifequal path '/about.htm' %}
+							class="selected"
+						{% endifequal %}	
+							>About</a></li>
+			
+			{% if username %}
+				<li><a href="/members"
+							{% ifequal path '/members' %}
+										class="selected"
+							{% endifequal %}
+						>Members</a></li>
+			{% endif %}			
+		
+
+			{% if username %}
+				<li><a href="/chat"
+							{% ifequal path '/chat' %}
+										class="selected"
+							{% endifequal %}
+						>Chat</a></li
+			>{% endif %}
+			{% if username %}
+				<li><a href="/private/index.htm"
+							>Private</a></li>
+			{% endif %}				
+			{% if username %}
+				<li><a href="/logout">Logout ({{username}})</a></li>
+			{% else %}
+			<li><a href="/login"
+						{% ifequal path '/login' %}
+							class="selected"
+						{% endifequal %}
+							>Login</a></li>
+			{% endif %}
+			</ul>
+		</div>
+		<form action="">
+					<div id="search">
+						<input type="text" value="Enter Search"/>
+						<input name="n1" type="image" src="static/images/go.gif" value="Search" class="btn"  />
+					</div>
+		</form>
+
+		<h2 id="slogan"> Mmmmm watcha <span>say?</span> </h2>
+		
+		</div>
+		<div id="col_left">
+			{% block col_left %}
+				Replace this
+			{% endblock %}
+		</div>
+		
+		<div id="col_right">
+			{% block col_right %}
+			<div id="news">
+					<h2>News</h2>
+					<ul>
+						<li>
+							<p class="date">May 15th, 2011 </p>
+							<p>I just started working on this site again. Aww yeah.</p>
+							<p><a href="index.html">Read more &raquo;</a></p>
+						</li>
+						<li>
+							<p class="date">April 28th, 2011 </p>
+							<p>Done with final exams!!</p>
+							<p><a href="index.html">Read more &raquo;</a></p>
+						</li>
+						<li>
+							<p class="date">March 10th, 2011 </p>
+							<p>Great trip at the Big Ten Tournament. Go Blue!.</p>
+							<p><a href="index.html">Read more &raquo;</a></p>
+						</li>
+						<li>
+							<p class="archive"><a href="index.html">News archive &raquo;</a></p>
+						</li>
+					</ul>
+		  </div><!--end news-->
+		  <div id="contacts">
+		  <h2>Contact Me</h2>
+		  <p><span class="green">Name:</span> Ryuta Oshikiri </p>
+		  <p><span class="green">Phone:</span> shoot me an email</p>
+		  <p><span class="green">Email:</span><a href="index.html"> surfindaeac[at]gmail.com</a></p>
+		  </div>
+			{% endblock %}
+		</div>
+		
+		</div>
+	</body>
+</html>	
