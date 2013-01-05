@@ -5,14 +5,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>	{% block title %} title goes here	{% endblock %}	</title>
 		<link type="text/css" rel="stylesheet" href="/static/glike.css"/>
-		<script type="text/javascript" src="/static/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
 	</head>
 	<body>
 	<div id="wrapper">
 	<div id="header">
 		<!-- header button-->
 		
-		<a href="index.htm" accesskey="1"> <img src="static/banner.png" ></a>
+		<a href="index.htm" accesskey="1"> Home</a>
 		<div id="navigation">
 		<ul>
 			<li><a href="storytime.htm" 
@@ -20,6 +20,11 @@
 									class="selected"
 						{% endifequal %}
 							>Story Time</a></li>
+			<li><a href="daenerysbot.htm"
+						{% ifequal path '/daenerysbot.htm' %}
+							class="selected"
+						{% endifequal %}	
+							>Daenerys Bot</a></li>
 			<li><a href="pictures.htm"
 						{% ifequal path '/pictures.htm' %}
 							class="selected"
@@ -69,7 +74,7 @@
 					</div>
 		</form>
 
-		<h2 id="slogan"> Mmmmm watcha <span>say?</span> </h2>
+		<h2 id="slogan"> Pop, lock, and <span>drop it</span> </h2>
 		
 		</div>
 		<div id="col_left">
